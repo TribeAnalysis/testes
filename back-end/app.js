@@ -10,7 +10,10 @@ var alertsRouter = require('./routes/alerts');
 var metasRouter = require('./routes/metas')
 
 const db = require('./config/database')
-db('mongodb+srv://gabriel:Azevedo2017@cluster0.p6dwo.gcp.mongodb.net/crtl_f?retryWrites=true&w=majority')
+const dbUser = process.env.DB_USER
+const dbName = process.env.DB_NAME
+const dbPass = process.env.DB_PASS
+db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.p6dwo.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`)
 
 var app = express();
 
