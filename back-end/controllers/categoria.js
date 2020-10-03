@@ -15,4 +15,18 @@ controller.novo = async (req,res)=>{
         res.status(500).send(erro)
     }
 }
+
+//metodo listar() -RETRIEVE
+controller.listar=async(req,res) =>{
+    try{
+    //await Curso.find() // sem parametros retorna tudo
+    
+    let dados = await Categoria.find()
+    res.send(dados)//vai com status http 200: ok  200 = padrão
+    }catch(erro){
+        console.error(erro)
+        res.status(500).send(erro)
+    }
+}
+
 module.exports=controller
