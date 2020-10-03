@@ -8,6 +8,10 @@ var indexRouter = require('./routes/index');
 var lancamentosRouter = require('./routes/lancamentos');
 var alertsRouter = require('./routes/alerts');
 var metasRouter = require('./routes/metas')
+
+const db = require('./config/database')
+db('mongodb+srv://gabriel:Azevedo2017@cluster0.p6dwo.gcp.mongodb.net/crtl_f?retryWrites=true&w=majority')
+
 var app = express();
 
 // view engine setup
