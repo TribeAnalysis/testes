@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var lancamentosRouter = require('./routes/lancamentos');
 var alertsRouter = require('./routes/alerts');
 var metasRouter = require('./routes/metas')
+var categoriarouter = require('./routes/categoria');
 
 const db = require('./config/database')
 const dbUser = process.env.DB_USER
@@ -31,6 +32,10 @@ app.use('/', indexRouter);
 app.use('/lancamentos', lancamentosRouter);
 app.use('/alerts', alertsRouter);
 app.use('/metas',metasRouter)
+//rota para a categoria
+
+app.use('/categoria',categoriarouter) 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -46,5 +51,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
