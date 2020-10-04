@@ -6,7 +6,7 @@ module.exports = uri =>{
         useUnifiedTopology: true
     })
 
-
+   
 mongoose.connection.on('connected',()=>
 console.log('Conectado com sucesso ao servidor')
 )

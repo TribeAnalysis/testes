@@ -8,7 +8,8 @@ var indexRouter = require('./routes/index');
 var lancamentosRouter = require('./routes/lancamentos');
 var alertsRouter = require('./routes/alerts');
 var metasRouter = require('./routes/metas')
-var categoriarouter = require('./routes/categoria');
+const categoriarouter = require('./routes/categoria');
+const receitarouter = require ('./routes/receita')
 
 const db = require('./config/database')
 const dbUser = process.env.DB_USER
@@ -35,6 +36,8 @@ app.use('/metas',metasRouter)
 //rota para a categoria
 
 app.use('/categoria',categoriarouter) 
+//rota para receita 
+app.use('/receita',receitarouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
