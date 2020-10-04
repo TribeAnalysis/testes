@@ -1,11 +1,11 @@
-const Receita = require('../models/Despesa')
+const Lancamento = require('../models/Lancamento')
 const controller = {}//obj vazio para inserir as funções
 
 //metodo novo() implementando o CREATE
 controller.novo = async (req, res) => {
     try {
         //envia os dados dentro de req.body para inserir no bd
-        await Receita.create(req.body)
+        await Lancamento.create(req.body)
         //http 201 : Criado
         res.status(201).end()
     }
@@ -21,7 +21,7 @@ controller.listar = async (req, res) => {
     try {
         //await Curso.find() // sem parametros retorna tudo
 
-        let dados = await Receita.find()
+        let dados = await Lancamento.find()
         res.send(dados)//vai com status http 200: ok  200 = padrão
     } catch (erro) {
         console.error(erro)
@@ -30,7 +30,7 @@ controller.listar = async (req, res) => {
 }
 controller.obterUm = async(req,res) => {
     const id = req.params.id // Captura o Id
-    let obj = await Receita.findById(id)
+    let obj = await Lancamento.findById(id)
 
     if(obj)res.send(obj) //se o objeto vier preenchido entao o retornamos
     else res.status(404).end() // se voltar vazio retornará ocodigo 404
@@ -41,7 +41,7 @@ controller.atualizar = async (req, res) => {
         //isolar o id do objeto
         const id = req.body._id
 
-        let obj = await Receita.findByIdAndUpdate(id, req.body)//Busca o objeto pelo id e, encontrando-o substitui o conteudo por req.body
+        let obj = await Lancamento.findByIdAndUpdate(id, req.body)//Busca o objeto pelo id e, encontrando-o substitui o conteudo por req.body
 
         if (obj) res.status(204).end() // se encontrou e substitui retorna http 204: no content
 
@@ -58,7 +58,7 @@ controller.excluir= async (req,res) =>{
    try{
     //isolando o id para exclusao 
     const id=req.body._id
-    let obj = await Receita.findByIdAndDelete(id)
+    let obj = await Lancamento.findByIdAndDelete(id)
     if(obj)res.send(204).end()//se encontrar o id ira exclui-lo em seguida
     else res.status(404).end()//objeto nao encontrado
 }

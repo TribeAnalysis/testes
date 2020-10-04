@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const data = new Date()
 const esquema = mongoose.Schema({
     nome:{
-        type:String ,
+        type:String,
         required:true // not null
     },
     valor: { //tem o enum
@@ -17,12 +17,11 @@ const esquema = mongoose.Schema({
     categoria:{
         type:Number,
         required:true,
-        enum:['Salario','Transferencia','Outros'],
         default:'Outros'
     },
     controle:{
         type:String,
-        default:'Receita'
+        default:'Despesa'
     }
 })
 /*,index{unique:true} > deixe jeito fica unico */
@@ -32,6 +31,6 @@ const esquema = mongoose.Schema({
 2- a constante do SCHEMA A esquema
 3-o nome da coleçao/tabela no bd que vai receber os objetos
 */
-module.exports = mongoose.model('Receita',esquema,'receitas')
+module.exports = mongoose.model('Despesa',esquema,'Despesas')
 
 

@@ -5,12 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var lancamentosRouter = require('./routes/lancamentos');
-var alertsRouter = require('./routes/alerts');
-var metasRouter = require('./routes/metas')
+
 const categoriarouter = require('./routes/categoria');
 const receitarouter = require ('./routes/receita')
-
+const metaRouter =require('./routes/meta')
 const db = require('./config/database')
 const dbUser = process.env.DB_USER
 const dbName = process.env.DB_NAME
@@ -30,9 +28,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/lancamentos', lancamentosRouter);
-app.use('/alerts', alertsRouter);
-app.use('/metas',metasRouter)
+
+
+
+//rota para metas
+app.use('/metas',metaRouter)
 //rota para a categoria
 
 app.use('/categoria',categoriarouter) 
