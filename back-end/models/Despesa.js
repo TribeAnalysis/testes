@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const data = new Date()
+
 const esquema = mongoose.Schema({
     nome:{
         type:String,
@@ -11,11 +12,11 @@ const esquema = mongoose.Schema({
         min:0
     },
     data:{
-        type: Date,
+        type: String,
         default:`${data.getDate()}/${(data.getMonth()+1)}/${data.getFullYear()}`
     },
     categoria:{
-        type:Number,
+        type:String,
         required:true,
         default:'Outros'
     },
@@ -31,6 +32,6 @@ const esquema = mongoose.Schema({
 2- a constante do SCHEMA A esquema
 3-o nome da coleçao/tabela no bd que vai receber os objetos
 */
-module.exports = mongoose.model('Despesa',esquema,'Despesas')
+module.exports = mongoose.model('Despesa',esquema,'despesas')
 
 

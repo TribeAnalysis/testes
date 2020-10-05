@@ -9,11 +9,13 @@ var indexRouter = require('./routes/index');
 const categoriarouter = require('./routes/categoria');
 const receitarouter = require ('./routes/receita')
 const metaRouter =require('./routes/meta')
+const despesaRouter=require('./routes/despesa')
+
 const db = require('./config/database')
 const dbUser = process.env.DB_USER
 const dbName = process.env.DB_NAME
 const dbPass = process.env.DB_PASS
-db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.p6dwo.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`)
+db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.p6dwo.gcp.mongodb.net/DB_PROJETO?retryWrites=true&w=majority`)
 
 var app = express();
 
@@ -38,6 +40,9 @@ app.use('/metas',metaRouter)
 app.use('/categoria',categoriarouter) 
 //rota para receita 
 app.use('/receita',receitarouter)
+//rota para despesa
+app.use('/despesa',despesaRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

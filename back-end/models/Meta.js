@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const data = new Date()
 const mes = (data.getMonth()) + 1 
 const ano=data.getFullYear(data)
-console.log(`${data.getDay()}/${(data.getMonth()+1)}/${data.getFullYear()}`)
+console.log(`${data.getDate()}/${(data.getMonth()+1)}/${data.getFullYear()}`)
 
 
 const esquema = mongoose.Schema({
