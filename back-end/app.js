@@ -6,8 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 
+const lancamentoRouter = require('./routes/lancamento')
 const categoriarouter = require('./routes/categoria');
-const receitarouter = require ('./routes/receita')
+const receitarouter = require ('./routes/positivo')
 const metaRouter =require('./routes/meta')
 const despesaRouter=require('./routes/despesa')
 
@@ -34,15 +35,16 @@ app.use('/', indexRouter);
 
 
 //rota para metas
-app.use('/metas',metaRouter)
+app.use('/meta',metaRouter)
 //rota para a categoria
 
 app.use('/categoria',categoriarouter) 
 //rota para receita 
-app.use('/receita',receitarouter)
+app.use('/positivo',receitarouter)
 //rota para despesa
 app.use('/despesa',despesaRouter)
-
+//rota para lancamentos
+app.use('/lancamento',lancamentoRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

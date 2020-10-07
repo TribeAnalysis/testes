@@ -9,4 +9,3 @@ router.get('/:id',controller.obterUm)//Retrieve One
 router.put('/',controller.atualizar)//Update
 router.delete('/',controller.excluir)//Delete
 module.exports =router
-//OK

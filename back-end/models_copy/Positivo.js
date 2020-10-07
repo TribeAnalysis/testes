@@ -1,40 +1,39 @@
 const mongoose = require('mongoose')
+
 const data = new Date()
 
 const esquema = mongoose.Schema({
-    nome:{
-        type:String,
+    nomeReceita:{
+        type:String ,
         required:true // not null
     },
-    valor: { //tem o enum
+    valorReceita: { //tem o enum
         type: Number,
         required:true,
         min:0
     },
-    data:{
-        type: String,
+    dataReceita:{
+        type: Date,
         default:`${data.getDate()}/${(data.getMonth()+1)}/${data.getFullYear()}`
     },
-    categoria:{
-        type: mongoose.ObjectId,ref:'Categoria',
+    categoriaReceita:{
+        type:String,
         required:true,
+        enum:['Salario','Transferencia','Outros'],
         default:'Outros'
     },
-    controle:{
+    controleReceita:{
         type:String,
-        default:'Despesa'
+        default:'Receita'
     }
 })
-/*,index{unique:true} > deixe jeito fica unico */
 //Parametros  do mongoose.model
 /*
 1- nome do model
 2- a constante do SCHEMA A esquema
 3-o nome da coleçao/tabela no bd que vai receber os objetos
-*/
-module.exports = mongoose.model('Despesa',esquema,'despesas')
+*/ 
 
-
- 
+module.exports = mongoose.model('Positivo',esquema,'positivos','todosLct')
 
 

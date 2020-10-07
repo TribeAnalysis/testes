@@ -1,5 +1,6 @@
 const Lancamento = require('../models/Lancamento')
-const controller = {}//obj vazio para inserir as funções
+const controller = {}
+//obj vazio para inserir as funções
 
 //metodo novo() implementando o CREATE
 controller.novo = async (req, res) => {
@@ -22,6 +23,9 @@ controller.listar = async (req, res) => {
         //await Curso.find() // sem parametros retorna tudo
 
         let dados = await Lancamento.find()
+        .populate('nomeDespesa').sort('data')
+        .populate('nomePositivo').sort('dataReceita')
+            
         res.send(dados)//vai com status http 200: ok  200 = padrão
     } catch (erro) {
         console.error(erro)

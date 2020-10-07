@@ -21,7 +21,7 @@ controller.listar = async (req, res) => {
     try {
         //await Curso.find() // sem parametros retorna tudo
 
-        let dados = await Metas.find()
+        let dados = await Metas.find().populate('categoria', 'nome')
         res.send(dados)//vai com status http 200: ok  200 = padrão
     } catch (erro) {
         console.error(erro)

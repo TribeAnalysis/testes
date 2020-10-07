@@ -3,16 +3,18 @@ const mongoose = require('mongoose')
 const aleatorioN =Math.floor( Math.random(1,9999999))
 
 const esquema = mongoose.Schema({
-
+    
+    idRelacional:{
+        type:Number,
+        default:aleatorioN
+    },
     nomePositivo:{
         type:mongoose.ObjectId,
-        ref:'Positivo',
-    
+        ref:'Positivo'   
     },
     nomeDespesa:{
         type:mongoose.ObjectId,
-        ref:'Despesa',
-     
+        ref:'Despesa'
     }
     
 })
@@ -22,6 +24,6 @@ const esquema = mongoose.Schema({
 2- a constante do SCHEMA A esquema
 3-o nome da coleçao/tabela no bd que vai receber os objetos
 */
-module.exports = mongoose.model('Lancamento',esquema,'lancamentos')
+module.exports = mongoose.model('Lancamento',esquema,'lancamentos','todosLct')
 
 

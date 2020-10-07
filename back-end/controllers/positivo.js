@@ -1,4 +1,4 @@
-const Receita = require('../models/Despesa')
+const Receita = require('../models/Positivo')
 const controller = {}//obj vazio para inserir as funções
 
 //metodo novo() implementando o CREATE
