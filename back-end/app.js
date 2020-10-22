@@ -19,7 +19,7 @@ const dbPass = process.env.DB_PASS
 db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.p6dwo.gcp.mongodb.net/DB_PROJETO?retryWrites=true&w=majority`)
 
 var app = express();
-
+f
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
