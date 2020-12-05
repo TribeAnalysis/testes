@@ -8,19 +8,26 @@ import { MaterialModule } from './material/material.module';
 import { MainToolbarComponent } from './ui/main-toolbar/main-toolbar.component';
 import { MainMenuComponent } from './ui/main-menu/main-menu.component';
 import { MainFooterComponent } from './ui/main-footer/main-footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CTRLLISTComponent } from './CRTL_F/ctrl-list/ctrl-list.component';
+import { CrtlFormComponent } from './CRTL_F/crtl-form/crtl-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainToolbarComponent,
     MainMenuComponent,
-    MainFooterComponent
+    MainFooterComponent,
+     CrtlFormComponent,
+    CTRLLISTComponent
+   
   ],
   imports: [
     MaterialModule,  
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
