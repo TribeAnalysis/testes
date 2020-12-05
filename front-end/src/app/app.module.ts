@@ -11,6 +11,7 @@ import { MainFooterComponent } from './ui/main-footer/main-footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CTRLLISTComponent } from './CRTL_F/ctrl-list/ctrl-list.component';
 import { CrtlFormComponent } from './CRTL_F/crtl-form/crtl-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CrtlFormComponent } from './CRTL_F/crtl-form/crtl-form.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
